@@ -25,13 +25,13 @@ const router = createRouter({
           path: '/topic', name: 'topic',  component: () => import('../components/officer/CreateTopic.vue'),
 },
 {
-          path: '/match', name: 'match',  component: () => import('../components/officer/MatchUser.vue'),
+          path: '/role', name: 'role',  component: () => import('../components/officer/MatchUser.vue'),
 },
 {
           path: '/report', name: 'report',  component: () => import('../components/officer/ReportView.vue'),
 },
 {
-          path: '/role', name: 'role',  component: () => import('../components/officer/RoleUser.vue'),
+          path: '/match', name: 'match',  component: () => import('../components/officer/RoleUser.vue'),
 },
 {
             path: '/time', name: 'time',  component: () => import('../components/officer/TimeSide.vue'),
