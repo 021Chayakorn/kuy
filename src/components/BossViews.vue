@@ -37,7 +37,7 @@
             <div class=" max-w-5xl border mx-auto rounded-md p-5 ">
              <h1 class="text-xl font-semibold ">รายชื่อผู้รอรับการประเมิน</h1>
              <div class=" grid grid-cols-1 lg:grid-cols-5 overflow-auto max-h-70 p-2 gap-2">
-              <div @click="select_users" v-for="(item,index) in userlist" :key="index"  class=" border rounded-md p-2 text-center hover:bg-blue-300">
+              <div v-for="(item,index) in userlist" :key="index"  class=" border rounded-md p-2 text-center hover:bg-blue-300">
                 {{ item.firstname }} {{ item.lastname }}
               </div>
              </div>
@@ -47,7 +47,7 @@
 <div class=" max-w-5xl w-full mx-auto  ">
   <div class=" border rounded-md p-5 ">
     <div class=" ">
-      <h1 class=" text-xl font-semibold">การประเมิน:<span>นาย {{ firtname }} {{ lastname }} </span></h1>
+      <h1 class=" text-xl font-semibold">การประเมิน:<span>นาย {{ firstname }} {{ lastname }} </span></h1>
 
     </div>
     <div class=" grid grid-cols-3 gap-2 ">
@@ -107,6 +107,7 @@ import axios from 'axios';
 const Scores = ref('Scores')
 const userlist = ref([])
 const user = ref({
+    user_id: '',
     firstname: '',
     lastname: ''
 })
@@ -129,25 +130,14 @@ const getquiz = async () => {
         const response = await axios.post(`${import.meta.env.VITE_API}/api/getquiz`)
 
         if(response.data.success){
-            localStorage.getItem(select_users)
             quiz.value = response.data.message
-
         }
     } catch(err){
         console.error(err)
         alert('ฉีผิด')
     }
 }
-const select_users = async () => {
-    try {
-        const response = await axios.post(`${import.meta.env.VITE_API}/api/getquiz`)
 
-        localStorage.setItem(select_users)
-    }catch (err) {
-        console.error(err)
-        alert('ฉีผิด')
-    }
-}
 
 onMounted(()=>{
     getuser()
