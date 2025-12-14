@@ -17,6 +17,27 @@ const router = createRouter({
     },
      {
       path: '/officer', name: 'officer',  component: () => import('../components/officer/OfficerView.vue'),
+      children: [
+{
+          path: '/quiz', name: 'quiz',  component: () => import('../components/officer/CreateQuiz.vue'),
+},
+{
+          path: '/topic', name: 'topic',  component: () => import('../components/officer/CreateTopic.vue'),
+},
+{
+          path: '/match', name: 'match',  component: () => import('../components/officer/MatchUser.vue'),
+},
+{
+          path: '/report', name: 'report',  component: () => import('../components/officer/ReportView.vue'),
+},
+{
+          path: '/role', name: 'role',  component: () => import('../components/officer/RoleUser.vue'),
+},
+{
+            path: '/time', name: 'time',  component: () => import('../components/officer/TimeSide.vue'),
+
+}
+      ]
     },
      {
       path: '/boss', name: 'boss',  component: () => import('../components/BossViews.vue'),

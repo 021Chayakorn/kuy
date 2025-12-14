@@ -20,15 +20,28 @@
   <div class="flex mt-44 flex-col justify-center items-center ">
     <h1 class=" text-xl font-semibold">ระบบ Officer</h1>
     <p>ระบบทำงานประเมิน</p>
+
+  <div class=" font-semibold mt-10 space-y-3 flex flex-col items-center">
+    <RouterLink to="/quiz">สร้างคำถาม</RouterLink>
+     <RouterLink to="/topic">จัดการหัวข้อ</RouterLink>
+      <RouterLink to="/match">จับคู่กรรมการ/ผู้ประเมิน</RouterLink>
+       <RouterLink to="/report">รายงานผล</RouterLink>
+        <RouterLink to="/role">กำหนดบทบาท</RouterLink>
   </div>
+
+  </div>
+
+
 
   </aside>
 
-<main class=" min-h-screen w-full">
-  <div class=" p-10 ">
-<h1 class=" text-xl">ระบบงานประเมิน: <span class=" text-blue-700 font-semibold"> Officer Dashboard</span></h1>
-  </div>
-</main>
+ <main class=" p-10 flex flex-col w-full min-h-screen">
+          <h1 class=" text-blue-700 text-2xl font-semibold">จัดการระบบ (Officer Dashboard)</h1>
+          <div class=" p-10">
+ <RouterView></RouterView>
+          </div>
+
+        </main>
 
  </div>
 
