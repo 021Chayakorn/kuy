@@ -68,7 +68,11 @@
                         <h1 class="font-bold mb-2">คะแนนคณะกรรมการ</h1>
                         <div>
                            <input type="number" min="1" max="4" v-model="q.boss_score" class="border p-2 w-24 text-center rounded font-bold text-xl">
-                          <span class="text-md font-bold"> /4</span>
+                          <span v-if="Scores" class="text-md font-bold"> /4</span>
+                            <select v-else class="border text-center rounded-md w-full p-2 ">
+    <option >ผ่าน</option>
+    <option >ไม่ผ่าน</option>
+  </select>
                         </div>
                       </div>
 
@@ -111,6 +115,7 @@ const Sidebar = () => {
     Open.value = !Open.value
 }
 
+const Scores = ref('Scores')
 const userlist = ref([])
 const quiz = ref([])
 const selectedUserId = ref(null) 
@@ -169,7 +174,7 @@ const bossvertify = async () => {
     try {
         const response = await axios.post(`${import.meta.env.VITE_API}/api/bossvertify`, {
             user_id: selectedUserId.value,
-            vertify: signature.value 
+            boss_sig: signature.value 
         })
 
         if (response.data.success) {
@@ -190,7 +195,7 @@ const savequiz = async (quizItem) => {
     }
     
     try {
-        const response = await axios.post(`${import.meta.env.VITE_API}/api/saveboss`, {
+        const response = await axios.post(`${import.meta.env.VITE_API}/api/savebossanswer`, {
             user_id: selectedUserId.value,
             quiz_id: quizItem.quiz_id, 
             scores: quizItem.boss_score, 
