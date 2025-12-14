@@ -72,7 +72,7 @@ const uprole = async () => {
   try {
     const response = await axios.post(`${import.meta.env.VITE_API}/api/uprole`,{
       boss_id: select_user.value,
-      posittion: select_role.value
+      position: select_role.value
     }
     )
      if(response.data.success) {
