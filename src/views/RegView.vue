@@ -14,19 +14,19 @@
         <div class=" flex flex-col mt-15 space-y-4 justify-center items-center ">
           <div>
             <h1>ชื่อผู้ใช้งาน</h1>
-            <input class=" border p-2 rounded-md w-90 " placeholder="สร้างชื่อผู้ใช้งาน..." type="text"/>
+            <input v-model="keyuser" class=" border p-2 rounded-md w-90 " placeholder="สร้างชื่อผู้ใช้งาน..." type="text"/>
           </div>
           <div>
             <h1>รหัสผ่าน</h1>
-            <input class=" border p-2 rounded-md w-90 " placeholder="สร้างรหัสผ่าน..." type="password"/>
+            <input v-model="password" class=" border p-2 rounded-md w-90 " placeholder="สร้างรหัสผ่าน..." type="password"/>
           </div>
           <div>
             <h1>ชื่อจริง</h1>
-            <input class=" border p-2 rounded-md w-90 " placeholder="ชื่อผู้ใช้งาน..." type="text"/>
+            <input v-model="firstname" class=" border p-2 rounded-md w-90 " placeholder="ชื่อผู้ใช้งาน..." type="text"/>
           </div>
           <div>
             <h1>นามสกุล</h1>
-            <input class=" border p-2 rounded-md w-90 " placeholder="นามสกุลผู้ใช้งาน..." type="text"/>
+            <input v-model="lastname" class=" border p-2 rounded-md w-90 " placeholder="นามสกุลผู้ใช้งาน..." type="text"/>
           </div>
 
           <button class=" p-2 border rounded-md w-90 bg-blue-400 hover:bg-blue-500 ">สมัครเข้าใช้งาน</button>
@@ -63,7 +63,7 @@ const handleregister = async () => {
         keyuser: keyuser.value,
         password: password.value,
         firstname: firstname.value,
-        latsname: lastname.value
+        lastname: lastname.value
       }
     )
 

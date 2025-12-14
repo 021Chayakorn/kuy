@@ -14,11 +14,11 @@
         <div class=" flex flex-col mt-15 space-y-4 justify-center items-center ">
           <div>
             <h1>ชื่อผู้ใช้งาน</h1>
-            <input class=" border p-2 rounded-md w-90 " placeholder="สร้างชื่อผู้ใช้งาน..." type="text"/>
+            <input v-model="keyuser" class=" border p-2 rounded-md w-90 " placeholder="สร้างชื่อผู้ใช้งาน..." type="text"/>
           </div>
           <div>
             <h1>รหัสผ่าน</h1>
-            <input class=" border p-2 rounded-md w-90 " placeholder="สร้างรหัสผ่าน..." type="password"/>
+            <input v-model="password" class=" border p-2 rounded-md w-90 " placeholder="สร้างรหัสผ่าน..." type="password"/>
           </div>
 
 
