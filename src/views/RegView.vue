@@ -10,6 +10,7 @@
     <div class=" flex flex-1 w-full  ">
       <div class="w-full flex flex-col justify-center items-center">
         <h1 class=" text-2xl font-semibold ">สมัครเข้าใช้บัญชี</h1>
+        <form @submit.prevent="handleregister()">
         <div class=" flex flex-col mt-15 space-y-4 justify-center items-center ">
           <div>
             <h1>ชื่อผู้ใช้งาน</h1>
@@ -36,6 +37,7 @@
           </div>
 
         </div>
+        </form>
       </div>
     </div>
 
@@ -45,9 +47,36 @@
 <script setup>
 import { ref } from 'vue';
 import axios from 'axios';
-import {jwtDecode} from 'jwt-decode';
 import { useRouter } from 'vue-router';
 
 const router = useRouter()
-const keyuser =ref()
+const keyuser =ref('')
+const password = ref('')
+const firstname = ref('')
+const lastname = ref('')
+const timeout = 1000
+
+const handleregister = async () => {
+  try {
+    const response = await axios.post(`${import.meta.env.VITE_API}/api/register`,
+      {
+        keyuser: keyuser.value,
+        password: password.value,
+        firstname: firstname.value,
+        latsname: lastname.value
+      }
+    )
+
+      if(response.status == 200) {
+        setTimeout(()=>{
+          alert('ลงทะเบียนสำเร็จ')
+          router.push('/login');
+          
+        },timeout)
+      }
+  } catch(err) {
+    console.error(err)
+    alert('ฉีผิด')
+  }
+}
 </script>
