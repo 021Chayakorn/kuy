@@ -37,40 +37,9 @@
             <div class=" max-w-5xl border mx-auto rounded-md p-5 ">
              <h1 class="text-xl font-semibold ">รายชื่อผู้รอรับการประเมิน</h1>
              <div class=" grid grid-cols-1 lg:grid-cols-5 overflow-auto max-h-70 p-2 gap-2">
-
-
-
-              <div class=" border rounded-md p-2 text-center hover:bg-blue-300">
-                นายควย เย้ดหิ
+              <div @click="select_users" v-for="(item,index) in userlist" :key="index"  class=" border rounded-md p-2 text-center hover:bg-blue-300">
+                {{ item.firstname }} {{ item.lastname }}
               </div>
-              <div class=" border rounded-md p-2 text-center hover:bg-blue-300">
-                นายควย เย้ดหิ
-              </div>
-              <div class=" border rounded-md p-2 text-center hover:bg-blue-300">
-                นายควย เย้ดหิ
-              </div>
-              <div class=" border rounded-md p-2 text-center hover:bg-blue-300">
-                นายควย เย้ดหิ
-              </div>
-              <div class=" border rounded-md p-2 text-center hover:bg-blue-300">
-                นายควย เย้ดหิ
-              </div>
-              <div class=" border rounded-md p-2 text-center hover:bg-blue-300">
-                นายควย เย้ดหิ
-              </div>
-              <div class=" border rounded-md p-2 text-center hover:bg-blue-300">
-                นายควย เย้ดหิ
-              </div>
-              <div class=" border rounded-md p-2 text-center hover:bg-blue-300">
-                นายควย เย้ดหิ
-              </div>
-              <div class=" border rounded-md p-2 text-center hover:bg-blue-300">
-                นายควย เย้ดหิ
-              </div>
-              <div class=" border rounded-md p-2 text-center hover:bg-blue-300">
-                นายควย เย้ดหิ
-              </div>
-
              </div>
             </div>
           </div>
@@ -78,122 +47,49 @@
 <div class=" max-w-5xl w-full mx-auto  ">
   <div class=" border rounded-md p-5 ">
     <div class=" ">
-      <h1 class=" text-xl font-semibold">การประเมิน:<span>นาย dffddffdfdf</span></h1>
+      <h1 class=" text-xl font-semibold">การประเมิน:<span>นาย {{ firtname }} {{ lastname }} </span></h1>
 
     </div>
     <div class=" grid grid-cols-3 gap-2 ">
       <div class=" md:col-span-2 p-2 space-y-2">
-        <h1 class=" font-semibold">ข้อที่.1</h1>
-        <p>หนก่ดฟนหกด่หกกดนดานฟหกดยน่หำดนไาำดนยไำดดๆพเบำพำนพาๆำพเ</p>
-      <h1 class=" border rounded-md p-3 w-full"> ผมทำดีครับ</h1>
-      <input class=" border rounded-md p-3 w-full" type="file"/>
-
-      </div>
-      <div class=" border rounded-md flex flex-col justify-around items-center  ">
-        <div>
-         <h1 class=" border rounded-md p-2 bg-blue-200 text-blue-700"> คะแนนผู้ประเมิน(User): <span class="">3</span></h1>
-        </div>
-
-         <div class=" justify-center items-center flex flex-col  ">
-   <h1>คะแนนคณะกรรมการ</h1>
-   <div>
-    <select class=" border rounded-md p-2 w-full">
-      <option>ไม่ผ่าน</option>
-      <option>ผ่าน</option>
-    </select>
-   </div>
-        </div>
-
-  </div>
-
-  <div class="p-2"><button class=" p-2 bg-green-300  text-green-700 hover:bg-green-400 font-semibold border rounded-md  ">ส่งแบบประเมิน</button></div>
-
-    </div>
-
- <div class=" grid grid-cols-3 gap-2 ">
-      <div class=" md:col-span-2 p-2 space-y-2">
-        <h1 class=" font-semibold">ข้อที่.1</h1>
-        <p>หนก่ดฟนหกด่หกกดนดานฟหกดยน่หำดนไาำดนยไำดดๆพเบำพำนพาๆำพเ</p>
-      <h1 class=" border rounded-md p-3 w-full"> ผมทำดีครับ</h1>
-      <input class=" border rounded-md p-3 w-full" type="file"/>
-
-      </div>
-      <div class=" border rounded-md flex flex-col justify-around items-center  ">
-        <div>
-         <h1 class=" border rounded-md p-2 bg-blue-200 text-blue-700"> คะแนนผู้ประเมิน(User): <span class="">3</span></h1>
-        </div>
-
-         <div class=" justify-center items-center flex flex-col  ">
-   <h1>คะแนนคณะกรรมการ</h1>
-   <div>
-    <input max="4" placeholder="กรุณาเลือก 1-4" class=" border rounded-md p-2" type="number"/>
-   </div>
-        </div>
-
-  </div>
-
-  <div class="p-2"><button class=" p-2 bg-green-300  text-green-700 hover:bg-green-400 font-semibold border rounded-md  ">ส่งแบบประเมิน</button></div>
-
-    </div>
-
-     <div class=" grid grid-cols-3 gap-2 ">
-      <div class=" md:col-span-2 p-2 space-y-2">
-        <h1 class=" font-semibold">ข้อที่.1</h1>
-        <p>หนก่ดฟนหกด่หกกดนดานฟหกดยน่หำดนไาำดนยไำดดๆพเบำพำนพาๆำพเ</p>
-      <h1 class=" border rounded-md p-3 w-full"> ผมทำดีครับ</h1>
-      <input class=" border rounded-md p-3 w-full" type="file"/>
-
-      </div>
-      <div class=" border rounded-md flex flex-col justify-around items-center  ">
-        <div>
-         <h1 class=" border rounded-md p-2 bg-blue-200 text-blue-700"> คะแนนผู้ประเมิน(User): <span class="">3</span></h1>
-        </div>
-
-         <div class=" justify-center items-center flex flex-col  ">
-   <h1>คะแนนคณะกรรมการ</h1>
-   <div>
-    <input max="4" placeholder="กรุณาเลือก 1-4" class=" border rounded-md p-2" type="number"/>
-   </div>
-        </div>
-
-  </div>
-
-  <div class="p-2"><button class=" p-2 bg-green-300 text-green-700 hover:bg-green-400 font-semibold border rounded-md  ">ส่งแบบประเมิน</button></div>
-
-    </div>
-
-
-  </div>
-
-
-
-
-
-
-</div>
-
-
-<div class="max-w-5xl   space-y-3 p-5 border rounded-md mt-10 w-full mx-auto ">
+        <h1 class=" font-semibold"></h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, dignissimos!</p>
+      <p></p>
   <h1 class="text-xl font-semibold">ความคิดเห็นโดยสรุป:</h1>
-  <textarea placeholder="แสดงความคิดเห็นโดยรวม..." class=" w-245 p-2 h-12 border rounded-md "></textarea>
+  <textarea placeholder="แสดงความคิดเห็นโดยรวม..." class=" w-100 p-2 h-12 border rounded-md "></textarea>
 
   <div class="flex flex-row justify-between items-center">
 
   <div>  <h1 class=" text-xl font-semibold">ลงนามลายเซ็นกรรมการ:</h1>
     <input class=" p-2 text-xl border-b" type="text"/></div>
 
-    <button class=" bg-green-300 hover:bg-green-400 p-2 text-green-700 border rounded-md ">ยืนยันผลการประเมิน</button>
 
   </div>
+      </div>
+      <div class=" border p-4 rounded-md flex flex-col justify-around items-center  ">
+        <div>
+         <h1 class=" border rounded-md p-2 bg-blue-200 text-blue-700"> คะแนนผู้ประเมิน(User): <span class="">3</span></h1>
+        </div>
 
+         <div class=" justify-center items-center flex flex-col  ">
+   <h1>คะแนนคณะกรรมการ</h1>
+   <div>
+    <input  min="1" max="4" type="number" class="border p-1 w-20 text-center rounded font-bold ">
+    <span v-if="Scores" class="text-md "> /4</span>
+    <select v-else class=" border rounded-md p-2 w-full">
+      <option >ไม่ผ่าน</option>
+      <option>ผ่าน</option>
+    </select>
+   </div>
+        </div>
 
-
+        
+  </div>
+      <button class=" bg-green-300 hover:bg-green-400 p-2 text-green-700 border rounded-md ">ยืนยันผลการประเมิน</button>
+    </div>
+  </div>
 </div>
-
-
-
         </main>
-
  </div>
 
   </div>
@@ -201,11 +97,60 @@
 
 
 <script setup>
-  import { ref } from 'vue';
-
+  import { ref, onMounted } from 'vue';
+import axios from 'axios';
   const Open =ref(false)
   const Sidebar =() => {
     Open.value =! Open.value
   }
 
+const Scores = ref('Scores')
+const userlist = ref([])
+const user = ref({
+    firstname: '',
+    lastname: ''
+})
+const quiz = ref([])
+const getuser = async () => {
+    try {
+        const response = await axios.get(`${import.meta.env.VITE_API}/api/getuserinprocess`)
+
+        if(response.data.success){
+            userlist.value = response.data.message
+            user.value = response.data.message
+        }
+    } catch(err){
+        console.error(err)
+        alert('ฉีผิด')
+    }
+}
+const getquiz = async () => {
+    try {
+        const response = await axios.post(`${import.meta.env.VITE_API}/api/getquiz`)
+
+        if(response.data.success){
+            localStorage.getItem(select_users)
+            quiz.value = response.data.message
+
+        }
+    } catch(err){
+        console.error(err)
+        alert('ฉีผิด')
+    }
+}
+const select_users = async () => {
+    try {
+        const response = await axios.post(`${import.meta.env.VITE_API}/api/getquiz`)
+
+        localStorage.setItem(select_users)
+    }catch (err) {
+        console.error(err)
+        alert('ฉีผิด')
+    }
+}
+
+onMounted(()=>{
+    getuser()
+    getquiz()
+})
 </script>
