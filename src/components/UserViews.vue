@@ -21,6 +21,9 @@
     <h1 class=" text-xl font-semibold">ระบบ User</h1>
     <p>ระบบทำงานประเมินกรรมการประเมิน</p>
 
+
+
+
   <div class=" font-semibold mt-10 space-y-3 flex flex-col items-center">
 
   </div>
@@ -32,23 +35,23 @@
   </aside>
 
  <main class=" p-10 flex flex-col w-full min-h-screen">
-          <h1 class=" text-blue-700 text-2xl font-semibold">แบบประเมิน (User Dashboard)</h1>
+          <h1 class="  text-blue-700 text-2xl font-semibold">แบบประเมิน (User Dashboard)</h1>
           <div class=" mt-5 ">
-            <div class=" max-w-5xl border mx-auto rounded-md p-5 ">
+            <div class=" bg-gradient-to-r from-blue-200 to-blue-400 max-w-5xl border mx-auto rounded-md p-5 ">
              <h1 class="text-xl font-semibold ">รายละเอียดผู้รับการประเมิน</h1>
              <div class=" grid grid-cols-1 lg:grid-cols-2 gap-2 p-5">
               <div class="flex flex-col gap-2">
                 <h1>ชื่อจริง-นามสกุล</h1>
-                <h1 class=" border rounded-md w-full p-2 ">ชยกร<span> - </span><span>สัญญาธิกุล</span></h1>
+                <h1 class=" bg-white border rounded-md w-full p-2 ">ชยกร<span> - </span><span>สัญญาธิกุล</span></h1>
               </div>
               <div class="flex flex-col gap-2">
                 <h1>แผนก/ฝ่าย</h1>
-       <textarea type="text" class="border h-10 rounded-md w-full p-2"></textarea>
+       <textarea type="text" class="border bg-white h-10 rounded-md w-full p-2"></textarea>
               </div>
 
                   <div class="flex flex-col gap-2">
                 <h1>ตำแหน่ง</h1>
-       <textarea type="text" class="border h-10 rounded-md w-full p-2"></textarea>
+       <textarea type="text" class="border bg-white h-10 rounded-md w-full p-2"></textarea>
               </div>
 
                 <div class="flex flex-col gap-2">

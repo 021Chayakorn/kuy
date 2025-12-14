@@ -27,9 +27,7 @@ const router = createRouter({
 {
           path: '/role', name: 'role',  component: () => import('../components/officer/MatchUser.vue'),
 },
-{
-          path: '/report', name: 'report',  component: () => import('../components/officer/ReportView.vue'),
-},
+
 {
           path: '/match', name: 'match',  component: () => import('../components/officer/RoleUser.vue'),
 },
@@ -44,6 +42,9 @@ const router = createRouter({
     },
      {
       path: '/user', name: 'user',  component: () => import('../components/UserViews.vue'),
+    },
+    {
+      path: '/dash', name:'dash', component: () => import('../components/DashView.vue')
     },
   ],
 })

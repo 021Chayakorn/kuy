@@ -13,14 +13,14 @@
 
 
     <main class=" flex min-h-screen">
-      <div class=" flex flex-col w-full justify-center items-center">
+      <div class="  shadow-blue-800 shadow shadow-2xl flex flex-col w-full justify-center items-center">
         <div class=" w-300 flex flex-col  justify-center items-center shadow border p-5 rounded-md ">
-          <h1 class=" text-2xl  ">ระบบงานอาชีวะศึกษา</h1>
+          <h1 class=" text-2xl font-semibold ">ระบบงานอาชีวะศึกษา</h1>
           <p>งานอาชีวะการประเมินการเรียนการสอนเพื่องานวิชาอาชีวะ</p>
 
-          <div class=" flex mt-20 flex-row gap-5">
-                 <RouterLink class=" hover:bg-gray-200 bg-white p-5 border rounded-md  " to="/reg">สมัครบัญชี</RouterLink>
-           <RouterLink class=" hover:bg-gray-200 bg-white p-5 border rounded-md " to="/login">เข้าสู่ระบบ</RouterLink>
+          <div class=" flex mt-10 flex-row gap-5">
+                 <RouterLink class=" hover:bg-gray-200 font-semibold bg-white p-5 border rounded-md  " to="/reg">สมัครบัญชี</RouterLink>
+           <RouterLink class=" hover:bg-gray-200 font-semibold bg-white p-5 px-6 border rounded-md " to="/login">เข้าสู่ระบบ</RouterLink>
           </div>
 
         </div>

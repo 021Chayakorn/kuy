@@ -33,7 +33,7 @@
 
  <main class=" p-10 flex flex-col w-full min-h-screen">
           <h1 class=" text-blue-700 text-2xl font-semibold">แบบประเมิน (Boss Dashboard)</h1>
-          <div class=" p-10 ">
+          <div class="mt-5">
             <div class=" max-w-5xl border mx-auto rounded-md p-5 ">
              <h1 class="text-xl font-semibold ">รายชื่อผู้รอรับการประเมิน</h1>
              <div class=" grid grid-cols-1 lg:grid-cols-5 overflow-auto max-h-70 p-2 gap-2">
@@ -50,19 +50,19 @@
             </div>
           </div>
 
-<div class=" max-w-5xl w-full mx-auto  ">
+<div class=" max-w-5xl mt-10 w-full mx-auto  ">
   <div class=" border rounded-md p-5 ">
     <div class=" ">
       <h1 class=" text-xl font-semibold">การประเมิน:<span>นาย {{ firtname }} {{ lastname }} </span></h1>
 
     </div>
-    <div class=" grid grid-cols-3 gap-2 ">
+    <div class=" grid grid-cols-1 lg:grid-cols-3 gap-2 ">
       <div class=" md:col-span-2 p-2 space-y-2">
         <h1 class=" font-semibold"></h1>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, dignissimos!</p>
       <p></p>
   <h1 class="text-xl font-semibold">ความคิดเห็นโดยสรุป:</h1>
-  <textarea placeholder="แสดงความคิดเห็นโดยรวม..." class=" w-100 p-2 h-12 border rounded-md "></textarea>
+  <textarea placeholder="แสดงความคิดเห็นโดยรวม..." class=" w-full p-2 h-12 border rounded-md "></textarea>
 
   <div class="flex flex-row justify-between items-center">
 
@@ -89,7 +89,7 @@
    </div>
         </div>
 
-        
+
   </div>
       <button class=" bg-green-300 hover:bg-green-400 p-2 text-green-700 border rounded-md ">ยืนยันผลการประเมิน</button>
     </div>
@@ -138,7 +138,7 @@ const getuser = async () => {
             userlist.value = response.data.message
             user.value = response.data.message
         }
-       
+
     } catch(err){
         console.error(err)
         alert('ฉีผิด')
