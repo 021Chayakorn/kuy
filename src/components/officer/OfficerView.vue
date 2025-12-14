@@ -11,7 +11,7 @@
  </header>
 
  <div class=" flex flex-1 min-h-0">
-  <aside :class="['bg-gradient-to-r flex flex-col from-blue-500 to-blue-300 w-85 fixed lg:static top-0 left-0 transtiton transform duration-300 ',
+  <aside :class="['bg-gradient-to-r min-h-screen flex flex-col from-blue-500 to-blue-300 w-85 fixed lg:static top-0 left-0 transtiton transform duration-300 ',
     Open ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
   ]">
 
@@ -24,9 +24,11 @@
   <div class=" font-semibold mt-10 space-y-3 flex flex-col items-center">
     <RouterLink to="/quiz">สร้างคำถาม</RouterLink>
      <RouterLink to="/topic">จัดการหัวข้อ</RouterLink>
-      <RouterLink to="/match">จับคู่กรรมการ/ผู้ประเมิน</RouterLink>
+     <RouterLink to="/time">จัดการเวลา</RouterLink>
+
+   <RouterLink to="/role">จับคู่กรรมการ/ผู้ประเมิน</RouterLink>
        <RouterLink to="/report">รายงานผล</RouterLink>
-        <RouterLink to="/role">กำหนดบทบาท</RouterLink>
+        <RouterLink to="/match">กำหนดบทบาท</RouterLink>
   </div>
 
   </div>
