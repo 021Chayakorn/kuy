@@ -37,9 +37,15 @@
             <div class=" max-w-5xl border mx-auto rounded-md p-5 ">
              <h1 class="text-xl font-semibold ">รายชื่อผู้รอรับการประเมิน</h1>
              <div class=" grid grid-cols-1 lg:grid-cols-5 overflow-auto max-h-70 p-2 gap-2">
-              <div v-for="(item,index) in userlist" :key="index"  class=" border rounded-md p-2 text-center hover:bg-blue-300">
-                {{ item.firstname }} {{ item.lastname }}
-              </div>
+       <div
+  v-for="item in userlist"
+  :key="item.user_id"
+  @click="getquiz(item.user_id)"
+  class="border rounded-md p-2 text-center hover:bg-blue-300 cursor-pointer"
+>
+  {{ item.firstname }} {{ item.lastname }}
+</div>
+
              </div>
             </div>
           </div>
@@ -47,7 +53,7 @@
 <div class=" max-w-5xl w-full mx-auto  ">
   <div class=" border rounded-md p-5 ">
     <div class=" ">
-      <h1 class=" text-xl font-semibold">การประเมิน:<span>นาย {{ firstname }} {{ lastname }} </span></h1>
+      <h1 class=" text-xl font-semibold">การประเมิน:<span>นาย {{ firtname }} {{ lastname }} </span></h1>
 
     </div>
     <div class=" grid grid-cols-3 gap-2 ">
@@ -103,14 +109,26 @@ import axios from 'axios';
   const Sidebar =() => {
     Open.value =! Open.value
   }
+const selectedUser = ref(null)
 
 const Scores = ref('Scores')
 const userlist = ref([])
 const user = ref({
-    user_id: '',
     firstname: '',
     lastname: ''
 })
+
+const selectUser = async (item) => {
+  selectedUser.value = item
+
+  // แสดงชื่อในหน้าจอ
+  user.value.firstname = item.firstname
+  user.value.lastname = item.lastname
+
+  // ดึง quiz โดยใช้ user_id
+  await getquiz(item.user_id)
+}
+
 const quiz = ref([])
 const getuser = async () => {
     try {
@@ -120,27 +138,34 @@ const getuser = async () => {
             userlist.value = response.data.message
             user.value = response.data.message
         }
+       
     } catch(err){
         console.error(err)
         alert('ฉีผิด')
     }
 }
-const getquiz = async () => {
-    try {
-        const response = await axios.post(`${import.meta.env.VITE_API}/api/getquiz`)
+const getquiz = async (user_id) => {
+  console.log('send user_id:', user_id)
 
-        if(response.data.success){
-            quiz.value = response.data.message
-        }
-    } catch(err){
-        console.error(err)
-        alert('ฉีผิด')
+  try {
+    const response = await axios.post(
+      `${import.meta.env.VITE_API}/api/getquiz`,
+      {
+        user_id: user_id   // ✅ ต้องเป็น object
+      }
+    )
+
+    if (response.data.success) {
+      quiz.value = response.data.message
     }
+  } catch (err) {
+    console.error(err)
+  }
 }
+
 
 
 onMounted(()=>{
     getuser()
-    getquiz()
 })
 </script>
