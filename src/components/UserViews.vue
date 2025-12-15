@@ -64,132 +64,122 @@
             </div>
           </div>
 
-<div class=" max-w-5xl mt-5 w-full mx-auto  ">
-  <div class=" border rounded-md p-5 ">
-    <div class=" ">
-      <h1 class=" text-xl font-semibold">การประเมิน:<span>นาย dffddffdfdf</span></h1>
+ <div class="max-w-5xl w-full mx-auto space-y-6">
+          <div v-for="(item, index) in quiz" :key="index" class="bg-white border rounded-lg shadow-md p-6">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+              
+              <div class="lg:col-span-2 space-y-4">
+                <div>
+                   <h1 class="font-bold text-lg text-blue-800">ข้อที่ {{ item.quiz_id }}</h1>
+                   <p class="text-gray-700 mt-1">{{ item.quiz_text }}</p>
+                </div>
+                
+                <textarea 
+                  v-model="item.user_answer_text" 
+                  placeholder="กรอกรายละเอียด..." 
+                  class="border rounded-md p-3 w-full h-24 focus:ring-2 focus:ring-blue-200 outline-none"
+                ></textarea>
+                
+              
+              </div>
 
-    </div>
-    <div class=" grid grid-cols-1 lg:grid-cols-3 gap-2 ">
-      <div class=" md:col-span-2 p-2 space-y-2">
-        <h1 class=" font-semibold">ข้อที่.1</h1>
-        <p>หนก่ดฟนหกด่หกกดนดานฟหกดยน่หำดนไาำดนยไำดดๆพเบำพำนพาๆำพเ</p>
-    <textarea placeholder="กรอกรายเอียด..." class="border rounded-md p-3 w-full"></textarea>
-      <input class=" border rounded-md p-3 w-full" type="file"/>
+              <div class="flex flex-col justify-between border-l lg:pl-6 gap-4">
+                <div class="flex flex-col items-center justify-center h-full gap-4">
+                  <h1 class="font-medium text-gray-900">ให้คะแนนตนเอง</h1>
+                  
+                  <div class="flex items-center gap-2">
+                    <template v-if="Scores">
+                      <input 
+                        type="number" 
+                        min="1" 
+                        max="4" 
+                        v-model="item.user_score"
+                        class="border p-2 w-20 text-center rounded-md font-bold text-xl focus:ring-2 focus:ring-blue-300"
+                      >
+                      <span class="text-gray-500 font-bold">/ 4</span>
+                    </template>
+                    
+                    <select v-else v-model="item.user_score" class="border text-center rounded-md w-full p-2">
+                      <option value="ผ่าน">ผ่าน</option>
+                      <option value="ไม่ผ่าน">ไม่ผ่าน</option>
+                    </select>
+                  </div>
+                </div>
 
-      </div>
-      <div class=" border rounded-md flex flex-col justify-around items-center  ">
-
-
-
-         <div class=" justify-center w-full p-3 items-center flex flex-col  ">
-   <h1>ให้คะแนนตนเอง</h1>
-   <div>
-    <select class=" mt-2 bg-gradient-to-r from-blue-200 to-blue-400 border rounded-md p-2 w-70">
-      <option>ไม่ผ่าน</option>
-      <option>ผ่าน</option>
-    </select>
-   </div>
+                <button 
+                  @click="saveQuizItem(item)" 
+                  class="bg-green-500 hover:bg-green-600 text-white p-2 rounded-md w-full font-semibold transition shadow-sm"
+                >
+                  บันทึกผลข้อนี่
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
 
-  </div>
+        <!-- <div class="max-w-5xl space-y-3 p-6 bg-white border rounded-lg shadow-md mt-10 w-full mx-auto">
+          <h1 class="text-xl font-semibold text-gray-800">ความคิดเห็นโดยสรุปของกรรมการ:</h1>
+          <div class="bg-green-50 text-green-800 p-4 border border-green-200 rounded-md"> -->
+            
+          <!-- </div>
+        </div> -->
 
-  <div class="p-2"><button class=" p-2 bg-green-300  text-green-700 hover:bg-green-400 font-semibold border rounded-md  ">ส่งแบบประเมิน</button></div>
-
+      </main>
     </div>
-
-<div class=" grid grid-cols-1 lg:grid-cols-3 gap-2 ">
-      <div class=" md:col-span-2 p-2 space-y-2">
-        <h1 class=" font-semibold">ข้อที่.1</h1>
-        <p>หนก่ดฟนหกด่หกกดนดานฟหกดยน่หำดนไาำดนยไำดดๆพเบำพำนพาๆำพเ</p>
-    <textarea placeholder="กรอกรายเอียด..." class="border rounded-md p-3 w-full"></textarea>
-      <input class=" border rounded-md p-3 w-full" type="file"/>
-
-      </div>
-      <div class=" border rounded-md flex flex-col justify-around items-center  ">
-
-
-
-         <div class=" justify-center w-full p-3 items-center flex flex-col  ">
-   <h1>ให้คะแนนตนเอง</h1>
-   <div>
-    <select class=" mt-2 bg-gradient-to-r from-blue-200 to-blue-400 border rounded-md p-2 w-70">
-      <option>ไม่ผ่าน</option>
-      <option>ผ่าน</option>
-    </select>
-   </div>
-        </div>
-
-  </div>
-
-  <div class="p-2"><button class=" p-2 bg-green-300  text-green-700 hover:bg-green-400 font-semibold border rounded-md  ">ส่งแบบประเมิน</button></div>
-
-    </div>
-
-      <div class=" grid grid-cols-1 lg:grid-cols-3 gap-2 ">
-      <div class=" md:col-span-2 p-2 space-y-2">
-        <h1 class=" font-semibold">ข้อที่.1</h1>
-        <p>หนก่ดฟนหกด่หกกดนดานฟหกดยน่หำดนไาำดนยไำดดๆพเบำพำนพาๆำพเ</p>
-    <textarea placeholder="กรอกรายเอียด..." class="border rounded-md p-3 w-full"></textarea>
-      <input class=" border rounded-md p-3 w-full" type="file"/>
-
-      </div>
-      <div class=" border rounded-md flex flex-col justify-around items-center  ">
-
-
-
-         <div class=" justify-center w-full p-3 items-center flex flex-col  ">
-   <h1>ให้คะแนนตนเอง</h1>
-   <div>
-    <select class="  bg-gradient-to-r from-blue-200 to-blue-400  mt-2 border rounded-md p-2 w-70">
-      <option>4-ดีเยี่ยม</option>
-      <option>3-ดี</option>
-      <option>2-ปานกลาง</option>
-      <option>1-ปรับปรุง</option>
-    </select>
-   </div>
-        </div>
-
-  </div>
-
-  <div class="p-2"><button class=" p-2 bg-green-300  text-green-700 hover:bg-green-400 font-semibold border rounded-md  ">ส่งแบบประเมิน</button></div>
-
-    </div>
-
-
-  </div>
-
-
-
-
-
-
-</div>
-
-
-<div class="max-w-5xl   space-y-3 p-5 border rounded-md mt-10 w-full mx-auto ">
-  <h1 class="text-xl font-semibold">ความคิดเห็นโดยสรุปของกรรมการ:</h1>
-<h1 class=" bg-green-200 text-green-700 p-2 border rounded-md ">โดยรวมดีมาก แต่ควรปรับรุงเรื่องงงงงงงงงงงงงงงงงงงงงงงงงงง</h1>
-
-
-</div>
-
-
-
-        </main>
-
- </div>
-
   </div>
 </template>
 
-
 <script setup>
-  import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
+import axios from 'axios';
 
-  const Open =ref(false)
-  const Sidebar =() => {
-    Open.value =! Open.value
+const Open = ref(false);
+
+const Sidebar = () => {
+  Open.value = !Open.value;
+};
+const quiz = ref([]);
+const Scores = ref(true); 
+
+const getquiz = async () => {
+  try {
+    const response = await axios.get(`${import.meta.env.VITE_API}/api/getquizuser`);
+    if (response.status == 200) {
+      const apidata = response.data.message || [];
+      
+      quiz.value = apidata.map(q => ({
+        ...q,
+        user_score: 3, 
+        user_answer_text: '', 
+        user_file: null
+      }));
+    }
+  } catch (err) {
+    console.error(err);
   }
+};
 
+
+const saveQuizItem = async (item) => {
+  try {
+    const response = await axios.post(`${import.meta.env.VITE_API}/api/saveuseranswer`, {
+      quiz_id: item.quiz_id,
+      scores: item.user_score,
+      details: item.user_answer_text,
+    });
+
+    if(response.status === 200) {
+        alert('บันทึกสำเร็จ');
+    }
+
+  } catch (err) {
+    console.error(err);
+    alert('เกิดข้อผิดพลาดในการบันทึก');
+  }
+};
+
+
+onMounted(() => {
+  getquiz();
+});
 </script>
