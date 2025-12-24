@@ -34,6 +34,10 @@ const router = createRouter({
 {
             path: '/time', name: 'time',  component: () => import('../components/officer/TimeSide.vue'),
 
+},
+{
+            path: '/upload', name: 'upload',  component: () => import('../components/officer/upload.vue'),
+
 }
       ]
     },

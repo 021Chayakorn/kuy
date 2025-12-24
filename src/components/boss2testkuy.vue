@@ -38,11 +38,11 @@
           </h2>
           
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 max-h-80 overflow-y-auto pr-2">
-            <div v-for="user in userList" :key="user.user_id" :class="['border rounded-lg p-3 text-center cursor-pointer transition-all duration-200 select-none', currentUser?.user_id === user.user_id ? 'bg-blue-600 text-white shadow-md transform scale-105 border-blue-600' : 'bg-white hover:bg-blue-50 hover:border-blue-300 text-gray-600']">
-              {{ user.firstname }} {{ user.lastname }}
+            <div @click="handleuser()" v-for="user in userlist" :key="user.user_id" :class="['border rounded-lg p-3 text-center cursor-pointer transition-all duration-200 select-none', currentUser?.user_id === user.user_id ? 'bg-blue-600 text-white shadow-md transform scale-105' : 'border-blue-600 bg-white hover:bg-blue-50 hover:border-blue-300 text-gray-600']">
+            
             </div>
           </div>
-          <p v-if="userList.length === 0" class="text-center text-gray-400 mt-4">ไม่มีรายชื่อที่รอการประเมิน</p>
+          <p class="text-center text-gray-400 mt-4">ไม่มีรายชื่อที่รอการประเมิน</p>
         </div>
 
         <div v-if="currentUser" class="max-w-5xl w-full mx-auto space-y-6 fade-in">
@@ -51,25 +51,25 @@
              <h2 class="text-lg text-blue-800">
                กำลังประเมิน: <span class="font-bold text-2xl ml-2">{{ currentUser.firstname }} {{ currentUser.lastname }}</span>
              </h2>
-             <button @click="currentUser = null" class="text-sm text-blue-500 underline hover:text-blue-700">ปิด / ยกเลิก</button>
+             <button class="text-sm text-blue-500 underline hover:text-blue-700">ปิด / ยกเลิก</button>
           </div>
           
-          <div class="grid grid-cols-1 gap-6"> 
-            <div v-for="(quizItem, index) in quizList" :key="quizItem.quiz_id || index" class="bg-white border rounded-xl shadow-sm p-6 relative overflow-hidden">
+          <div  class="grid grid-cols-1 gap-6"> 
+            <div v-for="(quizitem,index) in quizlist" :key="quizitem.quiz_id || index"  class="bg-white border rounded-xl shadow-sm p-6 relative overflow-hidden">
               <div class="absolute left-0 top-0 bottom-0 w-1 bg-blue-500"></div>
 
               <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 
                 <div class="lg:col-span-2 space-y-4">
                   <div>
-                    <h3 class="font-bold text-lg text-gray-800 mb-1">{{ index + 1 }}. {{ quizItem.topic || 'หัวข้อการประเมิน' }}</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">{{ quizItem.description || 'รายละเอียด...' }}</p>
+                    <h3 class="font-bold text-lg text-gray-800 mb-1">{{ index + 1 }}</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">{{ quizitem.quiz_name }}</p>
                   </div>
 
                   <div>
-                    <label class="block text-sm font-semibold text-gray-700 mb-2">ความคิดเห็นเพิ่มเติม (Boss Comment):</label>
+                    <label class="block text-sm font-semibold text-gray-700 mb-2"></label>
                     <textarea 
-                      v-model="quizItem.boss_comment" 
+                  v-model="quizitem.boss_comment"
                       placeholder="ระบุความคิดเห็น จุดเด่น หรือสิ่งที่ควรปรับปรุง..." 
                       class="w-full p-3 h-24 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition bg-gray-50 focus:bg-white"
                     ></textarea>
@@ -81,7 +81,7 @@
                      <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded border border-blue-200">
                        คะแนน User ประเมินตนเอง
                      </span>
-                     <div class="text-3xl font-bold text-blue-600 mt-2">{{ quizItem.user_score || 0 }}</div>
+                     <div class="text-3xl font-bold text-blue-600 mt-2">{{ quizitem.user_scores }}</div>
                   </div>
 
                   <div class="flex flex-col items-center">
@@ -91,7 +91,7 @@
                         type="number" 
                         min="1" 
                         max="4" 
-                        v-model="quizItem.boss_score" 
+                        v-model="quizitem.boss_scores"
                         class="w-20 text-center text-2xl font-bold p-2 border-2 border-gray-300 rounded-lg focus:border-blue-500 outline-none"
                       >
                       <span class="text-gray-400 font-bold text-xl">/ 4</span>
@@ -99,9 +99,9 @@
                   </div>
 
                   <button 
-                    @click="saveOneQuiz(quizItem)"
+                   
                     class="mt-6 w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-lg shadow transition-colors flex items-center justify-center gap-2"
-                  >
+                  @click="savequiz(quizitem)">
                     <span>💾 บันทึกข้อนี่</span>
                   </button>
                 </div>
@@ -116,18 +116,13 @@
               <div>
                 <label class="block text-gray-600 mb-2">ลงชื่อกรรมการ:</label>
                 <input 
-                  v-model="signature" 
+                 v-model="sig"
                   class="w-full text-xl border-b-2 border-gray-300 py-2 px-1 focus:border-blue-600 outline-none transition-colors bg-transparent placeholder-gray-300" 
                   type="text" 
                   placeholder="พิมพ์ชื่อเพื่อลงนาม..." 
                 />
               </div>
-              <button 
-                @click="verifyBossSignature"
-                :disabled="!signature"
-                :class="['font-bold py-3 px-6 rounded-lg shadow-md transition-all', 
-                  signature ? 'bg-blue-600 hover:bg-blue-700 text-white cursor-pointer' : 'bg-gray-300 text-gray-500 cursor-not-allowed']"
-              >
+              <button @click="signal()" class="font-bold py-3 px-6 rounded-lg shadow-md transition-all signature bg-blue-600 hover:bg-blue-700 text-white cursor-pointer bg-gray-300 text-gray-500 cursor-not-allowed">
                 ยืนยันการประเมินทั้งหมด
               </button>
             </div>
@@ -144,92 +139,79 @@ import axios from 'axios';
 
 
 const isSidebarOpen = ref(false);
-const userList = ref([]);
-const quizList = ref([]);
-const currentUser = ref(null);
-const signature = ref('');
 
+const userlist = ref([])
+const quizlist = ref([])
+const currentUser = ref(null)
+const sig = ref('')
 
-const fetchUserList = async () => {
+const showuser = async () => {
     try {
-        const response = await axios.get(`${import.meta.env.VITE_API}/api/getuserinprocess`);
-        if (response.data.success) {
-            userList.value = response.data.message;
+        const response = await axios.get(`${import.meta.env.VITE_API}/api/getuserinporcess`);
+
+        if(response.data.message) {
+            userlist.value = response.data.message
         }
+       
     } catch (err) {
-        console.error(err);
+        console.error(err)
     }
 }
 
-const handleSelectUser = async (user) => {
-    currentUser.value = user; 
-    signature.value = '';     
-    quizList.value = [];    
-
-    try {
-        const response = await axios.post(`${import.meta.env.VITE_API}/api/getquiz`, {
-            user_id: user.user_id 
+const handleuser = async (user) => {
+    currentUser.value = user;
+    try{
+        const response = await axios.get(`${import.meta.env.VITE_API}/api/getquiz`,{
+            user_id: user.user_id
         });
 
-        if (response.data.success) {
-            quizList.value = response.data.message.map(q => ({
+        if(response.data.success) {
+            quizlist.value = response.data.message.map(q => ({
                 ...q,
-                boss_score: q.boss_score || 3,      
+                boss_scores: q.boss_scores || 3,
                 boss_comment: q.boss_comment || ''
             }));
         }
     } catch (err) {
-        console.error(err);
-        alert('ไม่สามารถดึงข้อมูลแบบประเมินได้');
+        console.error(err)
     }
 }
 
-const saveOneQuiz = async (quizItem) => {
-    if (!currentUser.value) return alert('กรุณาเลือกผู้ถูกประเมินก่อน');
 
-    try {
-        const response = await axios.post(`${import.meta.env.VITE_API}/api/savebossanswer`, {
-            user_id: currentUser.value.user_id, 
-            quiz_id: quizItem.quiz_id,          
-            scores: quizItem.boss_score,
-            comment: quizItem.boss_comment,
-        });
-        
-        if (response.status === 200) {
-            alert(`บันทึกหัวข้อ "${quizItem.topic || 'นี้'}" เรียบร้อยแล้ว ✅`);
-        }
-    } catch (err) {
-        console.error(err);
-        alert('เกิดข้อผิดพลาดในการบันทึก ❌');
-    }
-}
-
-const verifyBossSignature = async () => {
-    if (!signature.value) return alert('กรุณาลงนามลายเซ็น');
-    if (!currentUser.value) return;
-
-    if (!confirm(`ยืนยันการประเมินของคุณ ${currentUser.value.firstname}? การกระทำนี้ไม่สามารถแก้ไขได้`)) {
-        return;
-    }
-
-    try {
-        const response = await axios.post(`${import.meta.env.VITE_API}/api/bossvertify`, {
+const savequiz = async (quizitem) => {
+    try{
+        const response = await axios.get(`${import.meta.env.VITE_API}/api/savebossanswer`,{
             user_id: currentUser.value.user_id,
-            boss_sig: signature.value
+            quiz_id: quizitem.quiz_id,
+            quiz_scores: quizitem.quiz_scores,
+            quiz_comment: quizitem.quiz_comment
         });
 
-        if (response.data.success) {
-            alert('ยืนยันผลการประเมินเสร็จสิ้นสมบูรณ์ 🎉');
-            currentUser.value = null;
-            quizList.value = [];
-            fetchUserList();
-        }
+      if(response.data.success) {
+        alert('พ่อมึงตาย')
+      }
     } catch (err) {
-        console.error("Verify error:", err);
-        alert('เกิดข้อผิดพลาดในการยืนยัน');
+        console.error(err)
     }
 }
 
-onMounted(() => {
-    fetchUserList();
-});
+const signal = async () => {
+    try {
+   const response = await axios.get(`${import.meta.env.VITE_API}/api/savebossanswer`,{
+        user_id:  currentUser.value.user_id,
+        boss_sig: sig.value
+        });
+
+
+      if(response.data.success) {
+        alert('พ่อมึงตาย')
+      }
+    } catch (err) {
+        console.error(err)
+    }
+}      
+
+onMounted(()=>{
+    showuser()
+})
+</script>

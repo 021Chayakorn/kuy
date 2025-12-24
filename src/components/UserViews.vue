@@ -76,7 +76,7 @@
                 
                 <textarea 
                   v-model="item.user_answer_text" 
-                  placeholder="กรอกรายละเอียด..." 
+                  placeholder="กรอกรายละเอียด..." ฝ
                   class="border rounded-md p-3 w-full h-24 focus:ring-2 focus:ring-blue-200 outline-none"
                 ></textarea>
                 
@@ -117,12 +117,12 @@
           </div>
         </div>
 
-        <!-- <div class="max-w-5xl space-y-3 p-6 bg-white border rounded-lg shadow-md mt-10 w-full mx-auto">
+        <div class="max-w-5xl space-y-3 p-6 bg-white border rounded-lg shadow-md mt-10 w-full mx-auto">
           <h1 class="text-xl font-semibold text-gray-800">ความคิดเห็นโดยสรุปของกรรมการ:</h1>
-          <div class="bg-green-50 text-green-800 p-4 border border-green-200 rounded-md"> -->
+          <div class="bg-green-50 text-green-800 p-4 border border-green-200 rounded-md"> 
             
-          <!-- </div>
-        </div> -->
+          </div>
+        </div>
 
       </main>
     </div>

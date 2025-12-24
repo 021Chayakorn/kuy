@@ -106,7 +106,7 @@ const showtopic = async () => {
   } catch(err) {
     console.error(err)
     alert('ฉีผิด')
-  }
+  }.
 }
   
   onMounted(()=>{
