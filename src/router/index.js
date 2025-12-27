@@ -19,26 +19,11 @@ const router = createRouter({
       path: '/officer', name: 'officer',  component: () => import('../components/officer/OfficerView.vue'),
       children: [
 {
-          path: '/quiz', name: 'quiz',  component: () => import('../components/officer/CreateQuiz.vue'),
+          path: '/toppic', name: 'toppic',  component: () => import('../components/officer/ToppicView.vue'),
 },
 {
-          path: '/topic', name: 'topic',  component: () => import('../components/officer/CreateTopic.vue'),
+          path: '/quiz', name: 'quiz',  component: () => import('../components/officer/QuizView.vue'),
 },
-{
-          path: '/role', name: 'role',  component: () => import('../components/officer/MatchUser.vue'),
-},
-
-{
-          path: '/match', name: 'match',  component: () => import('../components/officer/RoleUser.vue'),
-},
-{
-            path: '/time', name: 'time',  component: () => import('../components/officer/TimeSide.vue'),
-
-},
-{
-            path: '/upload', name: 'upload',  component: () => import('../components/officer/upload.vue'),
-
-}
       ]
     },
      {

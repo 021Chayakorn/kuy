@@ -22,13 +22,8 @@
     <p>ระบบทำงานประเมิน</p>
 
   <div class=" font-semibold mt-10 space-y-3 flex flex-col items-center">
-    <RouterLink to="/quiz">สร้างคำถาม</RouterLink>
-     <RouterLink to="/topic">จัดการหัวข้อ</RouterLink>
-     <RouterLink to="/time">จัดการเวลา</RouterLink>
-
-   <RouterLink to="/role">จับคู่กรรมการ/ผู้ประเมิน</RouterLink>
-       <RouterLink to="/report">รายงานผล</RouterLink>
-        <RouterLink to="/match">กำหนดบทบาท</RouterLink>
+    <RouterLink to="/toppic">สร้างหัวข้อการประเมิน & ตัวชี้วัด</RouterLink>
+    <RouterLink to="/quiz">สร้างแบบฟอร์มคำถาม</RouterLink>
   </div>
 
   </div>
