@@ -32,13 +32,25 @@
 
   </aside>
 
- <main class=" p-10 flex flex-col w-full min-h-screen">
+
+<main class=" flex min-h-screen p-10 w-full flex-col">
+<h1>จัดการระบบOfficer Dashboard</h1>
+<div class=" p-10">
+<RouterView></RouterView>
+</div>
+</main>
+
+ <!--
+  <main class=" p-10 flex flex-col w-full min-h-screen">
           <h1 class=" text-blue-700 text-2xl font-semibold">จัดการระบบ (Officer Dashboard)</h1>
           <div class=" p-10">
+
+
+
  <RouterView></RouterView>
           </div>
 
-        </main>
+        </main>-->
 
  </div>
 

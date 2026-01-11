@@ -35,7 +35,10 @@
   </aside>
 
  <main class=" p-10 flex flex-col w-full min-h-screen">
+  <div class=" flex flex-row justify-between items-center ">
           <h1 class="  text-blue-700 text-2xl font-semibold">แบบประเมิน (User Dashboard)</h1>
+        
+          </div>
           <div class=" mt-5 ">
             <div class=" bg-gradient-to-r from-blue-200 to-blue-400 max-w-5xl border mx-auto rounded-md p-5 ">
              <h1 class="text-xl font-semibold ">รายละเอียดผู้รับการประเมิน</h1>

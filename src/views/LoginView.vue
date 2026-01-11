@@ -58,7 +58,7 @@ const handlelogin = async () => {
       localStorage.setItem('authtoken', token)
 
       const decoded = jwtDecode(token)
-      
+
       if(decoded.role === 'user'){
         alert('เข้าสํู่ระบบสำเร็จ')
         router.push('/user')
@@ -67,14 +67,14 @@ const handlelogin = async () => {
         router.push('/boss')
       } else if(decoded.role === 'officer') {
          alert('เข้าสํู่ระบบสำเร็จ')
-        router.push('/officer')
+        router.push('/quiz')
       }
 
-      
+
   } catch(err) {
     console.error(err)
     alert('ฉีผิด')
   }
 }
-  
+
 </script>

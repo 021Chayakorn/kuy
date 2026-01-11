@@ -18,9 +18,16 @@
           <h1 class=" text-2xl font-semibold ">ระบบงานอาชีวะศึกษา</h1>
           <p>งานอาชีวะการประเมินการเรียนการสอนเพื่องานวิชาอาชีวะ</p>
 
-          <div class=" flex mt-10 flex-row gap-5">
-                 <RouterLink class=" hover:bg-gray-200 font-semibold bg-white p-5 border rounded-md  " to="/reg">สมัครบัญชี</RouterLink>
-           <RouterLink class=" hover:bg-gray-200 font-semibold bg-white p-5 px-6 border rounded-md " to="/login">เข้าสู่ระบบ</RouterLink>
+          <div class=" text-center flex mt-10 mb-10 flex-row gap-5">
+            <div class=" hover:bg-gray-200 font-semibold bg-white p-5 border rounded-md  ">
+  <RouterLink class=" text-blue-700 text-xl "  to="/reg">สมัครบัญชี</RouterLink>
+              <h1>สำหรับผู้ที่ยังไม่มีบัญชีอย่างเป็นทางการ</h1>
+</div>
+
+<div class=" hover:bg-gray-200 font-semibold bg-white p-5 border rounded-md  ">
+           <RouterLink class="text-blue-700 text-xl "  to="/login">เข้าสู่ระบบ</RouterLink>
+<h1>สำหรับผู้ที่สมัครบัญชีแล้วสามารถกดเข้าสู่ระบบได้เลย</h1>
+</div>
           </div>
 
         </div>
